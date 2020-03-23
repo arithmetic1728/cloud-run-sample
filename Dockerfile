@@ -7,6 +7,11 @@ ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY . ./
 
+# Install git
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git
+
 # Install production dependencies.
 RUN pip install --no-cache-dir -r requirements.txt
 
